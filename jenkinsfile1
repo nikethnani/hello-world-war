@@ -12,9 +12,14 @@ pipeline{
                 
             }
         }
-        stage("nexus artifactory"){
+        stage("Email Notification"){
             steps{
-               nexusArtifactUploader artifacts: [[artifactId: '$BUILD_TIMESTAMP', classifier: '', file: 'target/hello-world-war-1.0.0.war', type: 'war']], credentialsId: '0d7c74d0-284d-488a-8c08-6b51c7b0b530', groupId: 'QA', nexusUrl: 'https://13.232.77.215:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: '/nexusdecpl-repo', version: 'nexusdecpl-$BUILD_ID'           }
+                mail bcc: '', body: '''Hi,
+
+                How are you
+
+                Regards
+                Madhu''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'nikethnani@gmail.com'
                 
             }
         }
