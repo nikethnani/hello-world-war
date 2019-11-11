@@ -6,5 +6,12 @@ pipeline{
                 git 'https://github.com/sivajavatechie/JenkinsWar'
             }
         }
+        stage("Maven Build"){
+            steps{
+                sh "mvn clean package"
+                
+            }
+        }
+        
     }
 }
