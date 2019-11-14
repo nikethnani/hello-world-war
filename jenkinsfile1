@@ -13,7 +13,7 @@ pipeline{
         }
         stage('code analysis'){
             steps{
-                def scannerhome = tool 'tool name: 'sonar';
+                def scannerhome = tool 'sonar';
                 with SonarQubeEnv ('SonarQube')
                 sh """${scannerhome}/bin/sonar -D sonar.login = admin -D sonar.password = welcome01"""
             }
