@@ -13,7 +13,7 @@ pipeline{
         }
         stage('code analysis'){
             steps{
-                def scannerhome = tool name:'sonar' , type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                def scannerhome = tool name:'sonar', type:'hudson.plugins.sonar.SonarRunnerInstallation'
                 with SonarQubeEnv ('SonarQube') {
                     sh """${scannerhome}/bin/sonar sonar:sonar"""
                 }  
