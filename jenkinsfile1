@@ -15,7 +15,7 @@ pipeline{
             steps{
                 def scannerhome = tool 'tool name: 'sonar';
                 with SonarQubeEnv ('SonarQube')
-                sh """${scannerhome}/bin/sonar-runner -D sonar.login = admin -D sonar.password = Welcome01"""
+                sh """${scannerhome}/bin/sonar -D sonar.login = admin -D sonar.password = Welcome01"""
             }
         }
     }
