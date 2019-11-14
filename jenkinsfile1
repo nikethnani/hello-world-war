@@ -13,7 +13,7 @@ pipeline{
         }
         stage('code analysis'){
             steps{
-                def mavenhome = tool name:'maven3', type:'hudson.plugins.sonar.SonarRunnerInstallation'
+                def mavenhome = tool name:'maven3', type:'maven'
                 with SonarQubeEnv ('SonarQube') {
                     sh """${mavenhome}/bin/mvn sonar:sonar"""
                 }  
