@@ -13,9 +13,9 @@ pipeline{
         }
         stage('code analysis'){
             steps{
-                def scannerhome = tool name:'sonar';
+                def scannerhome = tool name:'sonar' , type: 'hudson.plugins.sonar.SonarRunnerInstallation'
                 with SonarQubeEnv ('SonarQube') {
-                    sh """${scannerhome}/opt/sonar -D sonar.login=admin -D sonar.password=welcome01"""
+                    sh """${scannerhome}/bin/sonar sonar:sonar"""
                 }  
            }
         }
